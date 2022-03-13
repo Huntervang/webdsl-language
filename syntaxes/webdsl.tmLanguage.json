@@ -1,0 +1,86 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Webdsl",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#function"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#type"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#operator"
+		},
+		{
+			"include": "#section"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.webdsl",
+				"match": "\\b(if|while|for|return|inverse|as|left join|right join|fetch|native class|session|module|else|test|predicate|service|section|class|principal is|desc|asc|limit|where|order by|derive|with credentials|attributes|expand|to|application|submit|expandtemplate|imports|page|navigate|override|template|ajax|var|from|placeholder|submitlink|action|replace|access control rules|rule|entity|invoke|init|email|true|in|function|extend)\\b"
+			}]
+		},
+		"function": {
+			"patterns": [{
+				"name": "entity.name.function.webdsl",
+				"match": "(?i:(?!\\$[a-z_][a-z0-9_$]*-&gt;)([a-z_$][a-z_0-9]*)\\s*(?=\\())"
+			}]
+		},
+		"operator": {
+			"patterns": [{
+				"name": "keyword.operator.arithmetic.webdsl",
+				"match": "(\\+|\\-|\\*|/|%|=|\\+=|\\-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=|==|!=|<=|>=|<(?!<)|>(?!>)|\\|)"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.double-slash.webdsl",
+				"match": "\\/\\/.*?$|<!--.*?$"
+			}]
+		},
+		"section": {
+			"patterns": [{
+				"name": "entity.name.namespace.webdsl",
+				"match": "(?<=section).*?$"
+			}]
+		},
+		"number": {
+			"patterns": [{
+				"name": "variable.other.property.webdsl",
+				"match": "\\b([0-9]+)\\b"
+			}]
+		},
+		"type": {
+			"patterns": [{
+				"name": "entity.name.type.webdsl",
+				"match": "(?<=:\\s).*?(?=[,\\);\\s])"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.webdsl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.webdsl",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.app"
+}

@@ -1,0 +1,29 @@
+{
+    "name": "webdsl-language",
+    "displayName": "Webdsl Language",
+    "description": "Syntax highlighting for webdsl",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.64.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "webdsl",
+            "aliases": ["Webdsl", "webdsl"],
+            "extensions": [".app"],
+            "configuration": "./language-configuration.json",
+            "icon": {
+                "dark": "./icons/icon_dark.png",
+                "light": "./icons/icon_light.png"
+            }
+        }],
+        "grammars": [{
+            "language": "webdsl",
+            "scopeName": "source.app",
+            "path": "./syntaxes/webdsl.tmLanguage.json"
+        }]
+    }
+}
